@@ -151,7 +151,7 @@ function nautilus.destroy(self, overload)
                 if player then
                     local item_to_add = player:get_inventory():add_item("main", item)
                     if item_to_add then
-                        minetest.add_item(player:getpos(), item_to_add)
+                        minetest.add_item(player:get_pos(), item_to_add)
                     else
                         minetest.add_item({x=pos.x+math.random()-0.5,y=pos.y,z=pos.z+math.random()-0.5},item)
                     end
@@ -785,7 +785,7 @@ minetest.register_on_dieplayer(function(player, reason)
 -----------
 
 function nautilus.put_light(object, name)
-    local pos = object:getpos()
+    local pos = object:get_pos()
     if not pos then
         return
     end
